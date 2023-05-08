@@ -1,0 +1,87 @@
+﻿@model Bill
+<div class="card-body">
+    <h5 class="card-title">Add Bill</h5>
+
+    <!-- Multi Columns Form -->
+    <form class="row g-3" method="post">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="DoctorName"></label>
+                <input asp-for="DoctorName" class="form-control">
+                <span class="text-danger" asp-validation-for="DoctorName"></span>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="PatientName"></label>
+                <input asp-for="PatientName" class="form-control">
+                <span class="text-danger" asp-validation-for="PatientName"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Date"></label>
+                <input asp-for="Date" class="form-control">
+                <span class="text-danger" asp-validation-for="Date"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Insurance"></label>
+                <select asp-for="Insurance" class="form-control custom-select">
+                    <option value="Yes" class="text-success font-weight-bold">With Insurance</option>
+                    <option value="No" class="text-danger font-weight-bold">Without Insurance</option>
+                </select>
+                <span class="text-danger" asp-validation-for="Insurance"></span>
+            </div>
+
+            <style>
+                .text-success {
+                    color: green !important;
+                }
+
+                .text-danger {
+                    color: red !important;
+                }
+            </style>
+
+
+        </div>
+
+
+        <div class="col-md-4 ">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Tax"></label>
+                <input asp-for="Tax" class="form-control">
+                <span class="text-danger" asp-validation-for="Tax"></span>
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Discount"></label>
+                <input asp-for="Discount" class="form-control">
+                <span class="text-danger" asp-validation-for="Discount"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Total"></label>
+                <input asp-for="Total" class="form-control">
+                <span class="text-danger" asp-validation-for="Total"></span>
+            </div>
+        </div>
+
+        <div class="text-center">
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-action="Index" class="btn btn-secondary text-white">Go back</a>
+
+
+
+        </div>
+    </form><!-- End Multi Columns Form -->
+
+</div>
+

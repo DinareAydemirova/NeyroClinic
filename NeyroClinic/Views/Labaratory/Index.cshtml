@@ -1,0 +1,59 @@
+﻿@model List<Labaratory>
+<div class="row">
+    <div class="coll-12">
+        <div class="card">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-header">Labaratory</h5>
+                <a asp-action="Create" class="btn btn-secondary text-white" style="margin-right:20px;">Add</a>
+
+            </div>
+            <div class="card-body">
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Resault</th>
+
+
+                                <th style="text-align:right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Labaratory item in Model)
+                            {
+                                <tr>
+                                  
+                                     <td>
+                                        @item.Patient
+                                    </td>
+                                    <td>
+                                        @item.Category
+                                    </td>
+                                      <td>
+                                        @item.Date
+                                    </td>
+                                     <td>
+                                        @item.Resault
+                                    </td>
+
+                                    <td>
+
+                                        <a asp-action="Update" asp-route-id="@item.Id" class="badge bg-primary text-white float-end" style="height: min-content">Update</a>
+
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

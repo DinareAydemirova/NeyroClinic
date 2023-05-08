@@ -1,0 +1,37 @@
+﻿@model Ward
+<div class="card-body">
+    <h5 class="card-title">Edit Ward</h5>
+
+    <!-- Multi Columns Form -->
+    <form class="row g-3" method="post">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="RoomNumber"></label>
+                <input asp-for="RoomNumber" class="form-control">
+                <span class="text-danger" asp-validation-for="RoomNumber"></span>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Floor"></label>
+                <input asp-for="Floor" class="form-control">
+                <span class="text-danger" asp-validation-for="Floor"></span>
+            </div>
+        </div>
+
+
+
+
+        <div class="text-center">
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-action="Index" class="btn btn-secondary text-white">Go back</a>
+
+
+
+        </div>
+    </form><!-- End Multi Columns Form -->
+
+</div>
+

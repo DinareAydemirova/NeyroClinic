@@ -1,0 +1,65 @@
+﻿@model Pharmacy
+<div class="card-body">
+    <h5 class="card-title">Add Medicine</h5>
+
+    <!-- Multi Columns Form -->
+    <form class="row g-3" method="post">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Name"></label>
+                <input asp-for="Name" class="form-control">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Type"></label>
+                <input asp-for="Type" class="form-control">
+                <span class="text-danger" asp-validation-for="Type"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="CompanyName"></label>
+                <input asp-for="CompanyName" class="form-control">
+                <span class="text-danger" asp-validation-for="CompanyName"></span>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="PurchaseDate"></label>
+                <input asp-for="PurchaseDate" class="form-control">
+                <span class="text-danger" asp-validation-for="PurchaseDate"></span>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label class="form-label" asp-for="ExpireDate"></label>
+                <input asp-for="ExpireDate" class="form-control">
+                <span class="text-danger" asp-validation-for="ExpireDate"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Stock"></label>
+                <input asp-for="Stock" class="form-control">
+                <span class="text-danger" asp-validation-for="Stock"></span>
+            </div>
+        </div>
+       
+
+        <div class="text-center">
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-action="Index" class="btn btn-secondary text-white">Go back</a>
+
+
+
+        </div>
+    </form><!-- End Multi Columns Form -->
+
+</div>
+

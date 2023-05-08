@@ -1,0 +1,70 @@
+﻿@model List<Ward>
+<div class="row">
+    <div class="coll-12">
+        <div class="card">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-header">Wards</h5>
+
+                <a asp-action="Create" class="btn btn-secondary text-white" style="margin-right:20px;">Add</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Room Number</th>
+                                <th>Floor</th>
+                               
+                                <th>Status</th>
+                                <th style="text-align:right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Ward item in Model)
+                            {
+                                <tr>
+                                   
+                                    <td>
+                                        @item.RoomNumber
+                                    </td>
+
+                                    <td>
+                                        @item.Floor
+                                    </td>
+                                    <td>
+                                        @if (item.IsDeactive)
+                                        {
+                                            <span class="text-danger">Full</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-success">Empty</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-end">
+                                            
+                                            <a asp-action="Update" asp-route-id="@item.Id" class="badge bg-primary text-white" style="margin-right:2px;height:min-content">Update</a>
+                                            @if (item.IsDeactive)
+                                            {
+                                                <a asp-action="Activity" asp-route-id="@item.Id" class="badge bg-success text-white">Empty</a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-action="Activity" asp-route-id="@item.Id" class="badge bg-danger text-white">Full</a>
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

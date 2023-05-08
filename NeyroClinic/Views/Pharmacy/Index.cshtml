@@ -1,0 +1,65 @@
+﻿@model List<Pharmacy>
+<div class="row">
+    <div class="coll-12">
+        <div class="card">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-header">Pharmacy</h5>
+
+                <a asp-action="Create" class="btn btn-secondary text-white" style="margin-right:20px;">Add</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+
+                                <th>Medicine Name</th>
+                                <th>Type</th>
+                                <th>Company Name</th>
+                                <th>Stock</th>
+                                <th style="text-align:right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Pharmacy item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @item.Name
+                                    </td>
+
+                                    <td>
+                                        @item.Type
+                                    </td>
+                                    <td>
+                                        @item.CompanyName
+                                    </td>
+
+
+                                    <td>
+                                        @item.Stock
+                                    </td>
+                                    
+                                    <td class="text-end align-items-center">
+                                        <a asp-action="Detail" asp-route-id="@item.Id" class="badge bg-warning text-white me-2">Detail</a>
+                                        <a asp-action="Update" asp-route-id="@item.Id" class="badge bg-primary text-white">Update</a>
+                                    </td>
+
+
+                                    
+
+
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

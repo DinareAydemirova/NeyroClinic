@@ -1,0 +1,84 @@
+﻿@model List<Bill>
+<div class="row">
+    <div class="coll-12">
+        <div class="card">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-header">Bills</h5>
+
+                <a asp-action="Create" class="btn btn-secondary text-white" style="margin-right:20px;">Add</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+
+                                <th>Doctor Name</th>
+
+                                <th>Patient Name</th>
+                                <th>Date</th>
+                                <th>With Insurance</th>
+                                <th>Tax</th>
+                                <th>Discount</th>
+                                <th>Total</th>
+
+
+                                <th style="text-align:right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Bill item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @item.DoctorName
+                                    </td>
+
+                                    <td>
+                                        @item.PatientName
+                                    </td>
+                                    <td>
+                                        @item.Date
+                                    </td>
+                                    <td>
+                                        @if (item.Insurance == "Yes")
+                                        {
+                                            <span class="text-success font-weight-bold">Yes</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-danger font-weight-bold">No</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @item.Tax
+                                    </td>
+                                    <td>
+                                        @item.Discount
+                                    </td>
+                                    <td>
+                                        @item.Total
+                                    </td>
+
+
+                                    <td>
+                                        <div class="d-flex justify-content-end">
+
+                                            <a asp-action="Update" asp-route-id="@item.Id" class="badge bg-primary text-white" style="margin-right:2px;height:min-content">Update</a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

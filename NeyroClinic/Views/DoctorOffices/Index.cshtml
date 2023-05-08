@@ -1,0 +1,57 @@
+﻿@model List<DoctorOffice>
+<div class="row">
+    <div class="coll-12">
+        <div class="card">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-header">Doctors' Offices</h5>
+
+                
+            </div>
+            <div class="card-body">
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Doctor</th>
+                                <th>Room Name</th>
+                                
+                                <th>Floor</th>
+                               
+                               
+                                <th style="text-align:right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (DoctorOffice item in Model)
+                            {
+                                <tr>
+                                     <td>
+                                        @item.Doctor.FullName
+                                    </td>
+                                    <td>
+                                        @item.Name
+                                    </td>
+                                   
+                                    <td>
+                                        @item.Floor
+                                    </td>
+
+
+                                    <td>
+
+                                        <a asp-action="Update" asp-route-id="@item.Id" class="badge bg-primary text-white float-end" style="height: min-content">Update</a>
+
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
