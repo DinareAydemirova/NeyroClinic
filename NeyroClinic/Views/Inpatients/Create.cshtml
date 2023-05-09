@@ -28,15 +28,17 @@
         </div>
         <div class="col-md-4">
             <div class="mb-3">
-                <div class="form-group ">
+                 <div class="form-group">
                     <label class="form-label">Select Doctor</label>
-                    <select multiple class="form-control" name="doctorId[]">
+                    <select class="form-control" name="doctorId">
                         @foreach (Doctor doctor in ViewBag.Doctors)
                         {
+
                             <option value="@doctor.Id">@doctor.FullName</option>
                         }
-                    </select>
-                </div>
+
+                            </select>
+                    </div>
             </div>
 
 
@@ -79,7 +81,7 @@
         <div class="col-md-4">
             <div class="mb-3">
                 <div class="form-group">
-                    <label class="form-label">Select Department</label>
+                    <label class="form-label">Select Ward</label>
                     <select class="form-control" name="wardId">
                         @foreach (Ward ward in ViewBag.Wards)
                         {

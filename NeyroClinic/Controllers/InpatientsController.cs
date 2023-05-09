@@ -25,7 +25,7 @@ namespace NeyroClinic.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Inpatient> inpatients = await _db.Inpatients.Include(x=>x.Ward).ToListAsync();
+            List<Inpatient> inpatients = await _db.Inpatients.Include(x=>x.Doctor).Include(x=>x.Ward).ToListAsync();
             return View(inpatients);
         }
 
