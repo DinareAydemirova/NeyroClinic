@@ -10,7 +10,7 @@ namespace NeyroClinic.DAL
         {
 
         }
-        //public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Bill> Bills { get; set; }
         public DbSet<Department> Departments { get; set; }
