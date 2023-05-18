@@ -1,22 +1,14 @@
-﻿@model Inpatient
+﻿@model OutPatient
 <div class="card-body">
-    <h5 class="card-title">Add Patient</h5>
+    <h5 class="card-title"> Add Outpatient </h5>
 
     <!-- Multi Columns Form -->
-    <form class="row g-3" method="post" >
+    <form class="row g-3" method="post" enctype="multipart/form-data">
         <div class="col-md-4">
             <div class="mb-3">
                 <label class="form-label" asp-for="Name"></label>
                 <input asp-for="Name" class="form-control">
                 <span class="text-danger" asp-validation-for="Name"></span>
-            </div>
-
-        </div>
-        <div class="col-md-4">
-            <div class="mb-3">
-                <label class="form-label" asp-for="Phone"></label>
-                <input asp-for="Phone" class="form-control">
-                <span class="text-danger" asp-validation-for="Phone"></span>
             </div>
         </div>
         <div class="col-md-4">
@@ -28,20 +20,17 @@
         </div>
         <div class="col-md-4">
             <div class="mb-3">
-                 <div class="form-group">
-                    <label class="form-label">Select Doctor</label>
-                    <select class="form-control" name="doctorId">
-                        @foreach (Doctor doctor in ViewBag.Doctors)
-                        {
-
-                            <option value="@doctor.Id">@doctor.FullName</option>
-                        }
-
-                            </select>
-                    </div>
+                <label class="form-label" asp-for="Age"></label>
+                <input asp-for="Age" class="form-control">
+                <span class="text-danger" asp-validation-for="Age"></span>
             </div>
-
-
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Phone"></label>
+                <input asp-for="Phone" class="form-control">
+                <span class="text-danger" asp-validation-for="Phone"></span>
+            </div>
         </div>
         <div class="col-md-4">
             <div class="mb-3">
@@ -52,37 +41,29 @@
         </div>
         <div class="col-md-4">
             <div class="mb-3">
-                <label class="form-label" asp-for="SurgeryType"></label>
-                <input asp-for="SurgeryType" class="form-control">
-                <span class="text-danger" asp-validation-for="SurgeryType"></span>
+                <label class="form-label" asp-for="Treatment"></label>
+                <input asp-for="Treatment" class="form-control">
+                <span class="text-danger" asp-validation-for="Treatment"></span>
             </div>
         </div>
-      
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Date"></label>
+                <input asp-for="Date" class="form-control">
+                <span class="text-danger" asp-validation-for="Date"></span>
+            </div>
+        </div>
 
-        <div class="col-md-4">
-            <div class="mb-3">
-                <label class="form-label" asp-for="SurgeryDate"></label>
-                <input asp-for="SurgeryDate" class="form-control">
-                <span class="text-danger" asp-validation-for="SurgeryDate"></span>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="mb-3">
-                <label class="form-label" asp-for="DischargedDate"></label>
-                <input asp-for="DischargedDate" class="form-control">
-                <span class="text-danger" asp-validation-for="DischargedDate"></span>
-            </div>
-        </div>
-      
+
         <div class="col-md-4">
             <div class="mb-3">
                 <div class="form-group">
-                    <label class="form-label">Select Ward</label>
-                    <select class="form-control" name="wardId">
-                        @foreach (Ward ward in ViewBag.Wards)
+                    <label class="form-label">Select Doctor</label>
+                    <select class="form-control" name="docId">
+                        @foreach (Doctor doctor in ViewBag.Doctors)
                         {
 
-                            <option value="@ward.Id">@ward.RoomNumber</option>
+                            <option value="@doctor.Id">@doctor.FullName</option>
                         }
 
                     </select>
@@ -91,7 +72,7 @@
 
 
         </div>
-         <div class="col-md-4">
+        <div class="col-md-4">
             <div class="mb-3">
                 <label class="form-label" asp-for="IsFemale">Gender</label>
                 <select asp-for="IsFemale" class="form-control">
@@ -103,7 +84,6 @@
         </div>
 
 
-
         <div class="text-center">
 
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -113,6 +93,8 @@
 
         </div>
     </form><!-- End Multi Columns Form -->
-
 </div>
 
+@section Scripts{
+    <partial name="_ValidationScriptsPartial">
+    }
