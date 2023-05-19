@@ -34,9 +34,7 @@ namespace NeyroClinic.Controllers
 
         #region Create
 
-
         #region Get
-
         public async Task<IActionResult> Create()
         {
             ViewBag.Wards = await _db.Wards.ToListAsync();
@@ -44,42 +42,100 @@ namespace NeyroClinic.Controllers
             return View();
         }
 
+
+        #endregion
+
         #region Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Inpatient inpatient, int doctorId, int wardId)
+        public async Task<IActionResult> Create(Inpatient inpatient, int docId, int wardId)
         {
             ViewBag.Wards= await _db.Wards.ToListAsync();
             ViewBag.Doctors = await _db.Doctors.ToListAsync();
-            
-            
             if (!ModelState.IsValid)
             {
-                return View(inpatient);
+                return View();
             }
 
-            inpatient.DoctorId = doctorId;
-
             inpatient.WardId= wardId;
-          
+            inpatient.DoctorId = docId;
             await _db.Inpatients.AddAsync(inpatient);
+
+
+
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        #endregion
+
+
+        #endregion
+
+        #region Update
+
+        #region Get
+        public async Task<IActionResult> Update(int? id)
+        {
+            ViewBag.Wards = await _db.Wards.ToListAsync();
+            ViewBag.Doctors = await _db.Doctors.ToListAsync();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Inpatient inpatient = await _db.Inpatients.FirstOrDefaultAsync(x => x.Id == id);
+            if (inpatient == null)
+            {
+                return BadRequest();
+            }
+            return View(inpatient);
+        }
+
+        #endregion
+
+        #region Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(Inpatient inpatient, int? id,int docId, int wardId)
+        {
+            ViewBag.Wards = await _db.Wards.ToListAsync();
+            ViewBag.Doctors = await _db.Doctors.ToListAsync();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Inpatient dbInpatient = await _db.Inpatients.FirstOrDefaultAsync(x => x.Id == id);
+            if (dbInpatient == null)
+            {
+                return BadRequest();
+            }
+            dbInpatient.DoctorId = docId;
+            dbInpatient.WardId= wardId;  
+            dbInpatient.Name= inpatient.Name;
+            dbInpatient.Adress=inpatient.Adress;
+            dbInpatient.BirthDate=inpatient.BirthDate;
+            dbInpatient.BloodGroup=inpatient.BloodGroup;    
+            dbInpatient.DischargedDate=inpatient.DischargedDate;    
+            dbInpatient.SurgeryDate=inpatient.SurgeryDate;
+            dbInpatient.SurgeryType=inpatient.SurgeryType;
+            dbInpatient.IsFemale=inpatient.IsFemale;
+            dbInpatient.Phone=inpatient.Phone;
+
             await _db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
 
-
         #endregion
 
         #endregion
-
-        #endregion
-
 
 
         #region Detail
         public async Task<IActionResult> Detail(int? id)
         {
+            ViewBag.Wards = await _db.Wards.ToListAsync();
+            ViewBag.Doctors = await _db.Doctors.ToListAsync();
             if (id == null)
             {
                 return NotFound();

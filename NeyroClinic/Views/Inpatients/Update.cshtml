@@ -1,9 +1,9 @@
 ﻿@model Inpatient
 <div class="card-body">
-    <h5 class="card-title">Add Patient</h5>
+    <h5 class="card-title">Edit Patient</h5>
 
     <!-- Multi Columns Form -->
-    <form class="row g-3" method="post" >
+    <form class="row g-3" method="post">
         <div class="col-md-4">
             <div class="mb-3">
                 <label class="form-label" asp-for="Name"></label>
@@ -28,7 +28,7 @@
         </div>
         <div class="col-md-4">
             <div class="mb-3">
-                 <div class="form-group">
+                <div class="form-group">
                     <label class="form-label">Select Doctor</label>
                     <select class="form-control" name="docId">
                         @foreach (Doctor doctor in ViewBag.Doctors)
@@ -37,8 +37,8 @@
                             <option value="@doctor.Id">@doctor.FullName</option>
                         }
 
-                            </select>
-                    </div>
+                    </select>
+                </div>
             </div>
 
 
@@ -57,7 +57,7 @@
                 <span class="text-danger" asp-validation-for="SurgeryType"></span>
             </div>
         </div>
-      
+
 
         <div class="col-md-4">
             <div class="mb-3">
@@ -66,7 +66,7 @@
                 <span class="text-danger" asp-validation-for="SurgeryDate"></span>
             </div>
         </div>
-          <div class="col-md-4">
+        <div class="col-md-4">
             <div class="mb-3">
                 <label class="form-label" asp-for="BirthDate"></label>
                 <input asp-for="BirthDate" class="form-control">
@@ -80,7 +80,7 @@
                 <span class="text-danger" asp-validation-for="DischargedDate"></span>
             </div>
         </div>
-      
+
         <div class="col-md-4">
             <div class="mb-3">
                 <div class="form-group">
@@ -98,7 +98,7 @@
 
 
         </div>
-         <div class="col-md-4">
+        <div class="col-md-4">
             <div class="mb-3">
                 <label class="form-label" asp-for="IsFemale">Gender</label>
                 <select asp-for="IsFemale" class="form-control">
