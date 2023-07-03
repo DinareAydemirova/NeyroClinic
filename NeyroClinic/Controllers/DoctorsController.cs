@@ -15,7 +15,7 @@ using static NeyroClinic.Helpers.Helper;
 namespace NeyroClinic.Controllers
 {
 
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class DoctorsController : Controller
     {
         public readonly IWebHostEnvironment _env;

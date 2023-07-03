@@ -10,7 +10,7 @@ using static NeyroClinic.Helpers.Helper;
 
 namespace Hospital.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class PharmacyController : Controller
     {
         public readonly AppDbContext _db;

@@ -5,7 +5,7 @@
         public enum Roles
         {
         Admin,
-        ConManager,
+      
         Member,
         
         }

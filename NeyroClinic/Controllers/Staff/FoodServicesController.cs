@@ -9,7 +9,7 @@ using static NeyroClinic.Helpers.Helper;
 
 namespace NeyroClinic.Controllers.Staff
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class FoodServicesController : Controller
     {
         public readonly AppDbContext _db;

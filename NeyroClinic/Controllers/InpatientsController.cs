@@ -11,7 +11,7 @@ using static NeyroClinic.Helpers.Helper;
 
 namespace NeyroClinic.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class InpatientsController : Controller
     {
         public readonly AppDbContext _db;

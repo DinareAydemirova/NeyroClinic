@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.Diagnostics;
 
 namespace Hospital.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
 
     public class LabaratoryController : Controller
     {

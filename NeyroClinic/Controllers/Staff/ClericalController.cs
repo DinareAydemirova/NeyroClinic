@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NeyroClinic.Controllers.Staff
 {
-    //[Authorize(Roles ="Admin")]
+    [Authorize(Roles ="Admin")]
    
     public class ClericalController : Controller
     {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NeyroClinic.DAL;
 using NeyroClinic.Models;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace NeyroClinic.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AppointmentController : Controller
     {
         public readonly AppDbContext _db;
